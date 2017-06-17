@@ -10,8 +10,8 @@
 <div class="container">
     <div class="jumbotron">
         <h1>Hello World!</h1>
-        <p th:text="'sessionId: ' + ${sessionId}"></p>
-        <p th:text="'sessionText: ' + ${sessionText}"></p>
+        <p>SessionId: <span id="sessionId" th:text="${sessionId}"></span></p>
+        <p>SessionText: <span id="sessionText" th:text="${sessionText}"></span></p>
     </div>
 </div>
 

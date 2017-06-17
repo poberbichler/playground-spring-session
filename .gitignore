@@ -2,6 +2,7 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 .DS_Store
 app-*.log
+__pycache__
 
 ### STS ###
 .apt_generated
@@ -24,3 +25,7 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+
+### VS CODE ###
+.cache
+.vscode
