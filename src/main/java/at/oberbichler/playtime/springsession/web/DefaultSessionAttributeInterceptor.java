@@ -29,9 +29,9 @@ public class DefaultSessionAttributeInterceptor implements HandlerInterceptor {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 		HttpSession session = request.getSession();
-		if (session.getAttribute("sessionText") == null) {
-			logger.info("adding [sessionText]");
-			session.setAttribute("sessionText", "hello from my spring application from port " + this.props.getPort());
+		if (session.getAttribute("initialPort") == null) {
+			logger.info("adding [initialPort]");
+			session.setAttribute("initialPort", this.props.getPort());
 		}
 
 		return true;

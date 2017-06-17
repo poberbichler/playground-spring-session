@@ -1,10 +1,11 @@
 package at.oberbichler.playtime.springsession.web;
 
-import at.oberbichler.playtime.springsession.redis.RedisService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.web.ServerProperties;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
@@ -16,23 +17,18 @@ import javax.servlet.http.HttpSession;
 @Controller
 @RequestMapping({"/", "home"})
 public class HomeController {
-	private final RedisService redisService;
+	private final ServerProperties props;
 
 	@Autowired
-	public HomeController(RedisService redisService) {
-		this.redisService = redisService;
+	public HomeController(ServerProperties props) {
+		this.props = props;
 	}
 
 	@GetMapping
 	public ModelAndView home(HttpSession httpSession) {
 		return new ModelAndView("home", new ModelMap()
 				.addAttribute("sessionId", httpSession.getId())
-				.addAttribute("sessionText", httpSession.getAttribute("sessionText")));
-	}
-
-	@ResponseBody
-	@GetMapping("{value}")
-	public String getValue(@PathVariable String value) {
-		return redisService.readValue(value);
+				.addAttribute("initialPort", httpSession.getAttribute("initialPort"))
+				.addAttribute("currentPort", props.getPort()));
 	}
 }
