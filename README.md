@@ -5,6 +5,7 @@ To start the application, use maven and docker-compose to build and run the appl
 
 ```
 > mvn package
+> docker-compose build
 > docker-compose up -d
 ```
 
