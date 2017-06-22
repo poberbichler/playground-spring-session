@@ -16,7 +16,7 @@ class HomeRequests():
         return self._find_text_by_id("sessionId")
 
     def extract_port(self):
-        return self._find_text_by_id("currentPort")
+        return self._find_text_by_id("currentUUID")
 
     def extract_initial_port(self):
-        return self._find_text_by_id("initialPort")
+        return self._find_text_by_id("initialUUID")

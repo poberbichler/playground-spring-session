@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
@@ -11,8 +11,8 @@
     <div class="jumbotron">
         <h1>Hello World!</h1>
         <p>SessionId: <span id="sessionId" th:text="${sessionId}"></span></p>
-        <p>Session created at port: <span id="initialPort" th:text="${initialPort}"></span></p>
-        <p>Site served from port: <span id="currentPort" th:text="${currentPort}"></span></p>
+        <p>Session created at server with id: <span id="initialUUID" th:text="${initialUUID}"></span></p>
+        <p>Site served from server with id: <span id="currentUUID" th:text="${currentUUID}"></span></p>
     </div>
 </div>
 
